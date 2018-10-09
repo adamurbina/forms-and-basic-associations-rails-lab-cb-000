@@ -20,10 +20,9 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(content_array)
-    note_content = content_array.join("++")
-    note = Note.find_by(song_id: self.id)
-    note.content = note.content + note_content
-    note.save
+    content_array.each do |phrase|
+      note_contents << phrase if phrase != ''
+    end
   end
 
   def note_contents
