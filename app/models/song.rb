@@ -21,7 +21,9 @@ class Song < ActiveRecord::Base
 
   def note_contents=(content_array)
     content_array.each do |phrase|
-      Note.create(content: phrase, song_id: self.id) if phrase != ''
+      if phrase != ''
+        Note.create(content: phrase, song_id: self.id) 
+      end
     end
   end
 
