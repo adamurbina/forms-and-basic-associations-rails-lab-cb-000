@@ -20,26 +20,16 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(content_array)
-    note_content = parse_content(content_array)
+    note_content = content_array.join("++")
+    note = Note.find_by(song_id: self.id)
+    note.content = note.content + note_content
     self.notes << Note.create(content: note_content)
   end
 
   def note_contents
     self.notes.collect do |note|
-      note.content.split("+")
+      note.content.split("++")
     end
   end
-
-  def parse_content(content)
-    content_string = ''
-    content.each do |phrase|
-      if phrase != ''
-        content_string = content_string + "+" + phrase
-      end
-    end
-    content_string
-  end
-
-
 
 end
