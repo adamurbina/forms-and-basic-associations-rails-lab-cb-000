@@ -29,6 +29,16 @@ class Song < ActiveRecord::Base
     end
   end
 
+  def parse_content(content)
+    content_string = ''
+    content.each do |phrase|
+      if phrase != ''
+        content_string = content_string + phrase
+      end
+    end
+    content_string
+  end
+
 
 
 end
