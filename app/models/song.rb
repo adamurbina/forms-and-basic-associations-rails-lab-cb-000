@@ -10,4 +10,8 @@ class Song < ActiveRecord::Base
     self.genre.name
   end
 
+  def artist_name=(name)
+    
+  end
+
 end
