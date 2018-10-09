@@ -18,6 +18,10 @@ class Song < ActiveRecord::Base
     self.artist ? self.artist.name : nil
   end
 
+  def note_contents=(content)
+    self.note = Note.create(content: content)
+  end
+
   def note_contents
     Notes.each do |note|
       note.content if note.song.id = self.id
