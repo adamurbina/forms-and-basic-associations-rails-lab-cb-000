@@ -18,8 +18,6 @@ class Song < ActiveRecord::Base
     self.artist.name
   end
 
-  def note_contents=(note)
-    self.note
-  end
+  
 
 end
