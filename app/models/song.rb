@@ -24,7 +24,9 @@ class Song < ActiveRecord::Base
 
   def note_contents
     Notes.each do |note|
-      note.content if note.song.id = self.id
+      if note.song.id = self.id
+        return note.content
+      end
     end
   end
 
