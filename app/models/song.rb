@@ -19,7 +19,7 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(content)
-    Note.create(content: content, song_id: self.song.id)
+    Note.create(content: content, song_id: self.id)
   end
 
   def note_contents
