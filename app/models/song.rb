@@ -23,7 +23,7 @@ class Song < ActiveRecord::Base
     note_content = content_array.join("++")
     note = Note.find_by(song_id: self.id)
     note.content = note.content + note_content
-    self.notes << Note.create(content: note_content)
+    note.save
   end
 
   def note_contents
