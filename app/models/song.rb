@@ -20,10 +20,10 @@ class Song < ActiveRecord::Base
 
   def note_contents
     Notes.each do |note|
-      
+      note.content if note.song.id = self.id
     end
   end
 
-  
+
 
 end
